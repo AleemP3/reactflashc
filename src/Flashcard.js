@@ -49,7 +49,7 @@ class Flashcard extends React.Component {
         <hr />
         <br />
         <Button color="blue" onClick={() => this.toggleAnswer()}>
-          <Icon name="eye" />
+          <Icon name={this.state.shown ? "eye" : "eye slash" } />
         </Button>
         <br />
         <br />
