@@ -37,6 +37,17 @@ class App extends React.Component {
     this.setState({ flashCards: [...cards]});
   }
 
+  editCard = (newCard) => {
+    const setCards = this.state.flashCards.map( oldCard => {
+      if (oldCard.id === newCard.id)
+        return newCard;
+          return oldCard; 
+    });
+    
+    
+    this.setState({ flashCards: setCards, }); 
+    
+  }
 
   render() {
   return (
@@ -45,8 +56,7 @@ class App extends React.Component {
       <Flashform addCards={this.addCards}/>
       <Flashcards cards={this.state.flashCards} 
         deleteCard={this.deleteCard}
-        toggleAnswer={this.toggleAnswer}
-        change={this.change} 
+        editCard={this.editCard} 
       />
     </Container>
     );

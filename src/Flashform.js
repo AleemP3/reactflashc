@@ -5,9 +5,18 @@ import { Form, }  from "semantic-ui-react"
 class Flashform extends React.Component {
   state = {question: "", answer: ""}
 
+  componentDidMount() {
+    if (this.props.id)
+      this.setState({question: this.props.question, answer: this.props.answer});
+  }
+
   submit = (e) => {
     e.preventDefault();
-    this.props.addCards(this.state); 
+      if (this.props.id)
+        this.props.editCard({ id: this.props.id, question: this.state.question, answer: this.state.answer });
+      else 
+        this.props.addCards(this.state); 
+        
     this.setState({question: "", answer: ""});
   }
 
