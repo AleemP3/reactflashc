@@ -22,7 +22,7 @@ class Flashcard extends React.Component {
       <Card.Content>
         {this.state.editing ? <Flashform question={this.props.question} 
           answer={this.props.answer} id={this.props.id} 
-          editCard={this.props.editCard}
+          editCard={this.props.editCard} toggleEdit={this.toggleEdit}
           /> 
         :
         <>

@@ -12,10 +12,14 @@ class Flashform extends React.Component {
 
   submit = (e) => {
     e.preventDefault();
-      if (this.props.id)
+      if (this.props.id) {
         this.props.editCard({ id: this.props.id, question: this.state.question, answer: this.state.answer });
-      else 
+        this.props.toggleEdit() 
+      }
+      else {
         this.props.addCards(this.state); 
+      }
+
         
     this.setState({question: "", answer: ""});
   }
